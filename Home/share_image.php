@@ -14,6 +14,7 @@ if(isset($_GET['image_id']))
 }
 if($_SERVER['REQUEST_METHOD'] == "POST")
 {
+    echo "ehere";
     $share_with = $name_err = "";
     $share_with = trim($_POST["share"]);
     echo $share_with;
@@ -73,6 +74,11 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
 </form>
 
 </div>
+
+
+<?php
+require_once 'snippets/footer.php';
+?>
 
 
 

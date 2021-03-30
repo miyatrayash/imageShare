@@ -2,7 +2,7 @@
 
 
 session_start();
-if(!isset($_SESSION['user']))
+if($_SESSION['user'] == null)
 {
     header('Location:/imageShare/Login/login.php');
 }

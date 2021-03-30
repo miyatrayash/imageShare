@@ -3,7 +3,7 @@
 include_once 'snippets/header.php';
 ?>
 
-<div class="w3-main w3-content" style="max-width:1600px;margin-top:83px; margin-right:83px; margin-left:83px;">
+<div class=" container-fluid justify-content-center align-items-center p-5 mt-5">
     <?php
 
     if ($_SERVER['REQUEST_METHOD'] == "POST") {
@@ -60,10 +60,45 @@ include_once 'snippets/header.php';
     }
     ?>
 
-<form action="upload.php" method="post" enctype="multipart/form-data">
-    Select image to upload:
-    <input type="file" name="fileToUpload" id="fileToUpload">
-    <input type="submit" value="Upload Image" name="submit">
-</form>
+        <div class="row justify-content-center">
+            <div class="col-sm-3">
+                <div class="card profile-card shadow rounded-3">
+                    <div class="card-body ">
+                        <form class="form-signin" action="upload.php" method="post" enctype="multipart/form-data">
+                            <div class="d-flex flex-column justify-content-center align-items-center">
+                                <img class="m-5"src="#" id="blah" alt="File is not Uploaded">
+                                <input class="btn btn-secondary mb-4" type="file" name="fileToUpload" id="fileToUpload" onchange="readURL(this);">
+                                <input class="btn btn-secondary p-2" type="submit" value="Upload Image" name="submit">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
 </div>
+
+
+<script>
+
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('#blah')
+                    .attr('src', e.target.result);
+
+                document.getElementById("blah").style.maxWidth = "200px";
+            };
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+</script>
+
+
+<?php
+require_once 'snippets/footer.php';
+?>
 

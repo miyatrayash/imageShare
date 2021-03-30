@@ -1,6 +1,7 @@
 <?php
 require_once "/imageShare/Database/config.php";
-
+session_start();
+$_SESSION['user'] = null;
 
 $username = $pass1 = "";
 $name_err =  $username_err = $password_err =  "";
@@ -83,6 +84,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <input type="password" name="pass2" placeholder="Confirm Password" required>
         <input type="email" name="email" placeholder="E-mail" required>
         <input type="submit" value="Signup">
+        <h4 style="color: black;">Already have an Account?<br><br> <a href="Login.php" style="color: rgb(15, 120, 134)"> LogIn </a></h4>
+
     </form>
 </body>
 </html>

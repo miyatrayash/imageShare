@@ -113,5 +113,10 @@ include_once 'snippets/header.php';
     }
 </script>
 </body>
+
+
+<?php
+require_once 'snippets/footer.php';
+?>
 </html>
 

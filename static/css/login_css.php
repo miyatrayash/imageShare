@@ -3,11 +3,11 @@ body {
     margin: 0;
     padding: 0;
     font-family: sans-serif;
-    background-image: url("/imageShare/static/imgs/pexels-sohel-patel-1199824.jpg");
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
+    background-color: #f2f2f2;
 }
 .box {
   width: 300px;
@@ -16,14 +16,16 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: rgb(71, 67, 67);
+  background: #e7e7e7;
   border-radius: 25px;
   text-align: center;
+    text-color: black;
 }
 
 .box h1 {
-  color: white;
-  text-transform: uppercase;
+  /*color: white;*/
+    text-color: black;
+    text-transform: uppercase;
   font-weight: 500;
 }
 
@@ -38,7 +40,7 @@ body {
   padding: 14px 10px;
   width: 200px;
   outline: none;
-  color: white;
+  color: black;
   border-radius: 24px;
   transition: 0.25s;
 }
@@ -58,7 +60,7 @@ body {
   border: 2px solid #2ecc71;
   padding: 14px 40px;
   outline: none;
-  color: white;
+  color: black;
   border-radius: 24px;
   transition: 0.25s;
   cursor: pointer;

@@ -3,8 +3,8 @@
 include_once 'snippets/header.php';
 
 ?>
-
 <!-- !PAGE CONTENT! -->
+
 <div class="w3-main w3-content" style="max-width:1600px;margin-top:83px; margin-right:83px; margin-left:83px;">
 
     <!-- Photo grid -->
@@ -20,34 +20,44 @@ include_once 'snippets/header.php';
         $stmt->execute();
         ?>
         <div class="photo">
+            <div class="container-fluid">
+                <div class="row justify-content-center">
+
             <?php
+            $i = 0;
             while ($image = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                echo "<img class=\"photos\" src=\"";
+            if($i%4 == 0){
+                echo "<br>";
+            }
+                ?>
+                    <div class="col-sm-3 justify-content-center m-2">
+                        <div class="card profile-card align-items-center">
+                            <div class="card-body">
+                <img class="photos m-3" src="
+            <?php
+
+                $i = $i + 1;
                 echo $image['path'] . "\" ";
                 echo "id=\"" . $image['id'] . "\" ";
 
                 echo "alt=\"";
                 echo $image['caption'] . "\" ";
                 echo " style=\"width:300px\" onclick=\"onClick(this)\" >";
-            }
+                ?>
+            </div>
+            </div>
+            </div>
+            <?php
             }
 
-
+            }
             ?>
+                        </div>
+            </div>
+
         </div>
     </div>
 
-    <!-- Pagination -->
-    <div class="w3-center w3-padding-32">
-        <div class="w3-bar">
-            <a href="#" class="w3-bar-item w3-button w3-hover-black">«</a>
-            <a href="#" class="w3-bar-item w3-black w3-button">1</a>
-            <a href="#" class="w3-bar-item w3-button w3-hover-black">2</a>
-            <a href="#" class="w3-bar-item w3-button w3-hover-black">3</a>
-            <a href="#" class="w3-bar-item w3-button w3-hover-black">4</a>
-            <a href="#" class="w3-bar-item w3-button w3-hover-black">»</a>
-        </div>
-    </div>
 
     <!-- Modal for full size images on click-->
     <div id="modal01" class="w3-modal w3-white" style="padding-top:0">
@@ -79,6 +89,7 @@ include_once 'snippets/header.php';
     // Modal Image Gallery
     function onClick(element) {
         document.getElementById("img01").src = element.src;
+        document.getElementById("img01").style.maxWidth = "500px"
         var block = document.getElementById("modal01");
         block.style.display = "block";
         id = element.id;
@@ -96,6 +107,7 @@ include_once 'snippets/header.php';
             success: function (data) {
                 console.log("success")
                 console.log(data)
+
                 var select = document.getElementById("shared_users");
                 var imageId = document.getElementById("id");
                 imageId.value = id;
@@ -143,6 +155,9 @@ include_once 'snippets/header.php';
     //        ?>
 
 </script>
-</body>
+</div>
+<?php
+ require_once 'snippets/footer.php';
+?>
 </html>
 

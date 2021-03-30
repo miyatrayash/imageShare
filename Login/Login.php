@@ -1,6 +1,6 @@
 <?php
 require_once "/imageShare/Database/config.php";
-
+$_SESSION['user'] = null;
 $username = $password = "";
 $name_err = $password_err =  "";
 
@@ -54,17 +54,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <title>Login Page</title>
     <?php
     require $_SERVER['DOCUMENT_ROOT'] . "/static/css/login_css.php";
+    session_start();
+    echo $_SESSION['user'];
     ?>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+
 </head>
 
 <body>
 
-    <form class="box" method="post">
+    <form class="box m-auto w-25 shadow" method="post">
         <h1>Login</h1>
         <input type="text" name="username" placeholder="Username">
         <input type="password" name="password" placeholder="Password">
         <input type="submit" value="Login">
-        <h4 style="color: white;">Don't have an Account? <a href="signup.php" style="color: rgb(15, 120, 134)"> SignUp </a></h4>
+        <h4 style="color: black;">Don't have an Account?<br><br> <a href="signup.php" style="color: rgb(15, 120, 134)"> SignUp </a></h4>
     </form>
 
 </body>
