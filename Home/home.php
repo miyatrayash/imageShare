@@ -11,7 +11,9 @@ include_once 'snippets/header.php';
     <div class="w3-row w3-grayscale-min">
         <?php
 
-        $stmt = $conn->prepare("select * from Images where user_id = ?");
+        if (isset($conn)) {
+            $stmt = $conn->prepare("select * from Images where user_id = ?");
+        }
 
 
         if ($stmt)
@@ -42,7 +44,7 @@ include_once 'snippets/header.php';
 
                 echo "alt=\"";
                 echo $image['caption'] . "\" ";
-                echo " style=\"width:300px\" onclick=\"onClick(this)\" >";
+                echo " style=\"width:300px\" onclick=\"onClick(this)\" download>";
                 ?>
             </div>
             </div>

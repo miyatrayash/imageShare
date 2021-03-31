@@ -39,7 +39,9 @@ include_once 'snippets/header.php';
 
                 $sql = "INSERT INTO `images` (`name`, `user_id`, `path`, `caption`) VALUES (?, ?, ?, ?)";
 
-                $stmt = $conn->prepare($sql);
+                if (isset($conn)) {
+                    $stmt = $conn->prepare($sql);
+                }
 
                 if($stmt){
                     $stmt->bindValue(1,basename($_FILES["fileToUpload"]["name"]),PDO::PARAM_STR);
@@ -49,7 +51,9 @@ include_once 'snippets/header.php';
 
                     if($stmt->execute())
                     {
-                        header("Location:". $home);
+                        if (isset($home)) {
+                            header("Location:". $home);
+                        }
                     }
                 }
                 echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
