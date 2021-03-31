@@ -28,5 +28,5 @@ CREATE TABLE `shared` (
     `user_id` int(11) NOT NULL,
     `image_id` int(11) NOT NULL,
     FOREIGN KEY (`image_id`) REFERENCES `images` (`id`),
-    FOREIGN KEY (`user_id`) REFERENCES `account` (`id`);
+    FOREIGN KEY (`user_id`) REFERENCES `account` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
