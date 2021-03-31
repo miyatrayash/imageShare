@@ -7,6 +7,10 @@ include_once 'snippets/header.php';
     <?php
 
     if ($_SERVER['REQUEST_METHOD'] == "POST") {
+        if(!is_dir("uploads/"))
+        {
+            mkdir("uploads/");
+        }
         $target_dir = "uploads/" . $_SESSION['user']['id'] . "/";
 
         if(!is_dir($target_dir))
