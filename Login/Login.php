@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $b = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
                 if (empty($b)) {
-                    echo "INVALID LOGIN DETAIL ";
+                    echo '<script> alert("INVALID LOGIN DETAILS"); </script>';
 
                 } else {
                     session_start();
@@ -54,8 +54,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <title>Login Page</title>
     <?php
     require $_SERVER['DOCUMENT_ROOT'] . "/static/css/login_css.php";
-    session_start();
-    echo $_SESSION['user'];
+
     ?>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
 

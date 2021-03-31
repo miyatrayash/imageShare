@@ -32,8 +32,8 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
             $stmt->execute();
             $user = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-            echo $share_with;
-            echo "<pre>" ,print_r($user), "</pre>";
+//            echo $share_with;
+//            echo "<pre>" ,print_r($user), "</pre>";
             $user_id = $user[0]['id'];
             if (sizeof($user) == 0)
             {
